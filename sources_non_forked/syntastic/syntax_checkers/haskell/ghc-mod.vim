@@ -20,7 +20,7 @@ let s:ghc_mod_new = -1
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! SyntaxCheckers_haskell_ghc_mod_IsAvailable() dict " {{{1
+function! SyntaxCheckers_haskell_ghc_mod_IsAvailable() dict
     if !executable(self.getExec())
         return 0
     endif
@@ -51,17 +51,10 @@ function! SyntaxCheckers_haskell_ghc_mod_IsAvailable() dict " {{{1
         let s:ghc_mod_new = -1
     endif
 
-    " ghc-mod 5.4.0 wants to run in the root directory of the project;
-    " syntastic can't cope with the resulting complications
-    "
-    " References:
-    " https://hackage.haskell.org/package/ghc-mod-5.4.0.0/changelog
-    let s:ghc_mod_bailout = syntastic#util#versionIsAtLeast(parsed_ver, [5, 4])
+    return (s:ghc_mod_new >= 0) && (v:version >= 704 || s:ghc_mod_new)
+endfunction
 
-    return (s:ghc_mod_new >= 0) && (v:version >= 704 || s:ghc_mod_new) && !s:ghc_mod_bailout
-endfunction " }}}1
-
-function! SyntaxCheckers_haskell_ghc_mod_GetLocList() dict " {{{1
+function! SyntaxCheckers_haskell_ghc_mod_GetLocList() dict
     let makeprg = self.makeprgBuild({
         \ 'exe': self.getExecEscaped() . ' check' . (s:ghc_mod_new ? ' --boundary=""' : '') })
 
@@ -81,7 +74,7 @@ function! SyntaxCheckers_haskell_ghc_mod_GetLocList() dict " {{{1
         \ 'preprocess': 'iconv',
         \ 'postprocess': ['compressWhitespace'],
         \ 'returns': [0] })
-endfunction " }}}1
+endfunction
 
 call g:SyntasticRegistry.CreateAndRegisterChecker({
     \ 'filetype': 'haskell',

@@ -15,6 +15,10 @@ if exists('g:loaded_syntastic_less_lessc_checker')
 endif
 let g:loaded_syntastic_less_lessc_checker = 1
 
+if !exists('g:syntastic_less_options')
+    let g:syntastic_less_options = ''
+endif
+
 if !exists('g:syntastic_less_use_less_lint')
     let g:syntastic_less_use_less_lint = 0
 endif
@@ -30,10 +34,13 @@ function! SyntaxCheckers_less_lessc_IsAvailable() dict
 endfunction
 
 function! SyntaxCheckers_less_lessc_GetLocList() dict
-    call syntastic#log#deprecationWarn('less_options', 'less_lessc_args')
+    if !exists('s:check_file')
+        let s:check_file = g:syntastic_less_use_less_lint ? s:node_file : self.getExecEscaped()
+    endif
 
     let makeprg = self.makeprgBuild({
-        \ 'exe': (g:syntastic_less_use_less_lint ? s:node_file : self.getExecEscaped()),
+        \ 'exe': s:check_file,
+        \ 'args': g:syntastic_less_options,
         \ 'args_after': '--no-color',
         \ 'tail': '> ' . syntastic#util#DevNull() })
 
