@@ -141,8 +141,8 @@ let Tlist_Auto_Update = 1
 nnoremap <silent> <F3> :TlistToggle<CR>
 
 " StupidEasyMotion: {{{
-map <C-O> <Leader><Leader>w
-map <C-E> <Leader><Leader>W
+    map <C-O> <Leader><Leader>w
+    map <C-E> <Leader><Leader>W
 " }}}
 
 " full screen
