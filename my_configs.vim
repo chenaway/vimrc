@@ -36,6 +36,7 @@ nmap <leader>6 6gt
 nmap <leader>7 7gt
 nmap <leader>8 8gt
 nmap <leader>9 9gt
+nmap <leader>c :q<CR>
 nmap <leader>n :tabnext<CR>
 nmap <leader>p :tablast<CR>
 "nmap <leader>t :tabnew<CR>
@@ -70,7 +71,8 @@ highlight CursorLine term=underline cterm=underline
 syntax enable
 "set background=dark
 "colorscheme solarized
-colorscheme antares
+colorscheme apprentice
+"colorscheme antares
 " for chinese char display
 " set guifont=yahei\ mono:h11:b
 " set guifont=Ubuntu\ Mono:h17
@@ -188,4 +190,12 @@ map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 
 " Orgmode: {{{
     let g:org_agenda_fields = ['~/org/index.org']
+" }}}
+"
+
+" IndentLine: {{{
+    let g:indentLine_enabled = 1
+    " let g:indentLine_char = 'c'
+    let g:indentLine_color_gui = '#A4E57E'
+    " let g:indentLine_color_term = 239
 " }}}
