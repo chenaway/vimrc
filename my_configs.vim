@@ -163,7 +163,7 @@ map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
     " let g:pymode_rope_completion_bind = '<Tab>'
     " Turn on pymode syntax
     let g:pymode_syntax = 0
-    let g:pymode_lint = 0
+    let g:pymode_lint = 1
     " Enable all python highlights
     let g:pymode_syntax_all = 1
     let g:pymode_syntax_slow_sync = 1
