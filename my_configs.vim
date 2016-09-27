@@ -200,3 +200,7 @@ map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
     let g:indentLine_color_gui = '#A4E57E'
     " let g:indentLine_color_term = 239
 " }}}
+
+" BufExplorer: {{{
+    nmap <leader>be :BufExplorer<CR>
+" }}}
