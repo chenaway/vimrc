@@ -9,6 +9,8 @@ set ignorecase
 set tabstop=4
 set cmdheight=1
 filetype plugin indent on
+set sessionoptions-=folds
+set sessionoptions-=options
 
 " --------------------------------------------------------------------------------
 " keys
@@ -72,11 +74,14 @@ syntax enable
 "set background=dark
 "colorscheme solarized
 colorscheme apprentice
+" colorscheme Dev_Delight
+" colorscheme eclm_wombat
 "colorscheme antares
 " for chinese char display
 " set guifont=yahei\ mono:h11:b
 " set guifont=Ubuntu\ Mono:h17
 set guifont=Monaco:h11
+set guifont=consolas:h11
 " set guifont=consolas:h11:b
 "let mapleader = "\"
 

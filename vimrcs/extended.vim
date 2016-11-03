@@ -75,6 +75,8 @@ cno $q <C-\>eDeleteTillSlash()<cr>
 " Bash like keys for the command line
 cnoremap <C-A>		<Home>
 cnoremap <C-E>		<End>
+cnoremap <C-F>		<Right>
+cnoremap <C-B>		<Left>
 cnoremap <C-K>		<C-U>
 
 cnoremap <C-P> <Up>
@@ -110,7 +112,6 @@ inoremap $t <><esc>i
 " => General abbreviations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Omni complete functions
