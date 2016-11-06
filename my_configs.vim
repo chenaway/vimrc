@@ -97,9 +97,15 @@ endfunction
 map <leader>l <ESC>:call Addlinenumber()<CR>
 
 function! Find(word)
-    execute "g/" . a:word . "/echo line('.') getline('.')"
+    "　execute "g/" . a:word . "/echo line('.') getline('.')"
+    if a:word == ""
+        execute "vimgrep /" . expand("<cword>") . "/j " . expand('%') .'| copen'
+    else
+        execute "vimgrep /" . a:word . "/j " . expand('%') .'| copen'
+    endif
 endfunction
 map <leader>f <ESC>:call Find("")<Left><Left>
+map <leader>a <ESC>:call Find("")<CR>
 
 " create new markdown file in current directory with date as filename
 function! CreateTodaysMarkdown()
