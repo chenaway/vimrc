@@ -76,18 +76,16 @@ highlight CursorLine term=underline cterm=underline
 syntax enable
 "set background=dark
 "colorscheme solarized
-colorscheme abra
-"colorscheme abbott
-"colorscheme apprentice
-"colorscheme Dev_Delight
-"colorscheme eclm_wombat
+colorscheme apprentice
+" colorscheme Dev_Delight
+" colorscheme eclm_wombat
 "colorscheme antares
-""" for chinese char display
+" for chinese char display
 " set guifont=yahei\ mono:h11:b
 " set guifont=Ubuntu\ Mono:h17
-" set guifont=Monaco:h11
+set guifont=Monaco:h11
 " set guifont=consolas:h11
-set guifont=yahei\ mono:h11
+" set guifont=yahei\ mono:h11
 set guifontwide=yahei\ mono:h11
 " set guifont=consolas:h11:b
 "let mapleader = "\"
