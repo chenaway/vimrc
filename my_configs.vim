@@ -127,6 +127,32 @@ function! CreateTodaysMarkdown()
 endfunction
 nmap <leader>md :call CreateTodaysMarkdown()<CR>
 
+
+" --------------------------------------------------------------------------------
+" file type specific
+
+" JSON file
+function! ReloadFormatJson()
+    e! | silent %!jq "."
+endfunc
+function! FormatJson()
+    silent %!jq "."
+endfunc
+autocmd BufReadPost *.json nmap <localleader>j :call ReloadFormatJson()<CR>
+autocmd FileType json nmap <leader>j :call ReloadFormatJson()<CR>
+
+" XML file
+function! FormatXml()
+    %!xmllint --recover --format -
+endfunc
+autocmd BufReadPost *.xml nmap <leader>x :call FormatXml()<CR>
+
+" Markdown file
+function! MarkdownMarkAsCode()
+    normal viwc``Pl
+endfunc
+autocmd BufReadPost *.md nmap <leader>c :call MarkdownMarkAsCode()<CR>
+
 " --------------------------------------------------------------------------------
 " plugins
 
@@ -229,3 +255,4 @@ map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 " BufExplorer: {{{
     nmap <leader>be :BufExplorer<CR>
 " }}}
+"
